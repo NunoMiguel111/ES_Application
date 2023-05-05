@@ -1,9 +1,85 @@
-.logo {
-    width: 75px;
-    position: fixed;
-    top: 20px;
-    left: 47.5%;
-    display: inline-block;
-    cursor: pointer;
+:root {
+    box-sizing: border-box;
+    }
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+    }
+
+body{
+    overflow: hidden;
 }
 
+li{
+    list-style: none;
+    color: black;
+}
+
+.burguer-button{
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.main-menu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: lightgray;
+    border: 2px black solid;
+    border-radius: 3%;
+    width: 500px;
+    margin-bottom: 50px;
+    position: absolute;
+    right: 320px;
+    top: 100px;
+}
+
+.menu-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    
+}
+
+.sensor-showcase{
+    position: absolute;
+    top: 200px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+
+.sensor-container{
+    width: 200px;
+    height: 600px;
+    margin-right: 200px;
+    border: 3px black solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+  
+}
+
+.circle-container{
+    border: 2px green solid;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sensor-name:hover{
+    cursor: pointer;
+    font-size: 2.05em;
+}
