@@ -10,6 +10,10 @@
 
 body{
     overflow: hidden;
+    background-image: url(./images/ld_DAJ-NA03YsxFGKV79YOzuRP2q5M_9YCTptcRc6so.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
 }
 
 li{
@@ -60,13 +64,18 @@ li{
     width: 200px;
     height: 600px;
     margin-right: 200px;
-    border: 3px black solid;
+    border: 6px darkorange solid;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    background-color: orange;
   
+}
+
+.sensor-container:hover{
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
 
 .circle-container{
