@@ -1,0 +1,109 @@
+:root {
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+body {
+    overflow-x: hidden;
+    overflow: hidden;
+    background-image: url(./images/ld_DAJ-NA03YsxFGKV79YOzuRP2q5M_9YCTptcRc6so.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    color: black;
+}
+
+.burger-button {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 2;
+    cursor: pointer;
+    width: 30px; /* Adjust this to change the width of the icon */
+    height: 30px; /* Adjust this to change the height of the icon */
+}
+
+.main-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100vh;
+    overflow: hidden;
+    transition: width 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: lightgray;
+    padding: 60px 30px;
+}
+
+.main-menu.open {
+    width: 300px;
+}
+
+.menu-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-list li {
+    padding: 10px 0;
+}
+
+.sensor-showcase{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    width: 80%; /* Adjust this value if needed */
+    overflow: hidden;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.sensor-container{
+    width: 12.5rem; /* 200px */
+    height: 37.5rem; /* 600px */
+    border: 6px solid darkorange;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: orange;
+    transition: all 0.3s ease-in-out;
+}
+
+.sensor-container:hover{
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.circle-container{
+    border: 2px solid green;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sensor-title:hover{
+    cursor: pointer;
+    font-size: 2.05em;
+}

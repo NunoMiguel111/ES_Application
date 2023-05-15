@@ -4,49 +4,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <script src="./index.js"></script>
+    <link rel="stylesheet" href="./style_upgrade.css">
     <title>ES App</title>
 </head>
-<body >
-    <nav class="main-menu">
-        <img src="./images/menu-icon-mobile-21.jpg" alt="Team M logo" class="burguer-button">
+<body>
+    <img src="./images/menu-icon-mobile-21.jpg" alt="Menu icon" class="burger-button" id="menu-button">
+    <nav class="main-menu" id="main-menu">
         <ul class="menu-list">
-            <li>Sensors</li>
-            <li>Gps</li>
-            <li>About us</li>
-            
+            <li><a href="power.html">Power</a></li>
+            <li><a href="gps.html">GPS</a></li>
+            <li><a href="sensors.html">Sensors</a></li>
+            <li><a href="communications.html">Communications</a></li>
+            <li><a href="about-us.html">About Us</a></li>
         </ul>
     </nav>
-    <div class="sensor-showcase">
-        <div class="sensor-container">
-            <h1 class="sensor-name">Nome</h1>
+    <section class="sensor-showcase">
+        <article class="sensor-container">
+            <h1 class="sensor-title">Nome</h1>
             <div class="circle-container">
                 <p class="data">Data</p>
             </div>
             <h4>Timestamp</h4>
-        </div>
-        <div class="sensor-container">
-            <h1 class="sensor-name"> Nome</h1>
+        </article>
+        <article class="sensor-container">
+            <h1 class="sensor-title">Nome</h1>
             <div class="circle-container">
                 <p class="data">Data</p>
             </div>
             <h4>Timestamp</h4>
-        </div>
-        <div class="sensor-container">
-            <h1 class="sensor-name">Nome</h1>
+        </article>
+        <article class="sensor-container">
+            <h1 class="sensor-title">Nome</h1>
             <div class="circle-container">
                 <p class="data">Data</p>
             </div>
             <h4>Timestamp</h4>
-        </div>
-        <div class="sensor-container">
-            <h1 class="sensor-name">Nome</h1>
+        </article>
+        <article class="sensor-container">
+            <h1 class="sensor-title">Nome</h1>
             <div class="circle-container">
                 <p class="data">Data</p>
             </div>
             <h4>Timestamp</h4>
-        </div>
-    </div>
+        </article>
+    </section>
+    <script src="./index.js"></script>
+    <script>
+        document.getElementById('menu-button').addEventListener('click', function() {
+            document.getElementById('main-menu').classList.toggle('open');
+        });
+    </script>
 </body>
 </html>
