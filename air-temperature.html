@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style_upgrade.css">
+    <link rel="stylesheet" href="./style_Sensores.css">
     <title>ES App</title>
 </head>
 <body>
@@ -27,26 +27,8 @@
             </div>
             <h4 id="air-temperature-timestamp">Collected at:<br><span id="air-temperature-time"></span></h4>
         </article>
-        <article class="sensor-container">
-            <h1 class="sensor-title"><a href="water-temperature.html">Water Temperature</a></h1>
-            <div class="circle-container">
-                <p class="data">20ºC</p>
-            </div>
-            <h4 id="water-temperature-timestamp">Collected at:<br><span id="water-temperature-time"></span></h4>
-        </article>
-        <article class="sensor-container">
-            <h1 class="sensor-title"><a href="water-ph.html">Water PH</a></h1>
-            <div class="circle-container">
-                <p class="data">7.5</p>
-            </div>
-            <h4 id="water-ph-timestamp">Collected at:<br><span id="water-ph-time"></span></h4>
-        </article>
-        <article class="sensor-container">
-            <h1 class="sensor-title"><a href="water-tds.html">Water TDS</a></h1>
-            <div class="circle-container">
-                <p class="data">1000 ppm</p>
-            </div>
-            <h4 id="water-tds-timestamp">Collected at:<br><span id="water-tds-time"></span></h4>
+        <article class="big-container">
+            <!-- Add your content for the big container here -->
         </article>
     </section>
     <script src="./index.js"></script>
@@ -60,9 +42,6 @@
             const currentTimestamp = new Date().toLocaleString();
     
             document.getElementById('air-temperature-time').textContent = currentTimestamp;
-            document.getElementById('water-temperature-time').textContent = currentTimestamp;
-            document.getElementById('water-ph-time').textContent = currentTimestamp;
-            document.getElementById('water-tds-time').textContent = currentTimestamp;
         }
     
         // Call updateTimestamps initially
@@ -71,3 +50,5 @@
         // Update timestamps every 1 second (1000ms)
         setInterval(updateTimestamps, 1000);
     </script>
+</body>
+</html>
