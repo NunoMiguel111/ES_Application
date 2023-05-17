@@ -130,6 +130,7 @@ li {
 /* Introduction Section */
 .intro-section {
     margin-bottom: 40px;
+    color: #423b3b; /* Adjust the color as needed */
 }
 
 .intro-section h1 {
