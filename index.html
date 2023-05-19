@@ -25,36 +25,37 @@
             <div class="circle-container">
                 <p class="data">25ºC</p>
             </div>
-            <h4 id="air-temperature-timestamp">Collected at:<br><span id="air-temperature-time"></span></h4>
+            <h4 id="air-temperature-timestamp" class="timestamp">Collected at:<br><span id="air-temperature-time"></span></h4>
         </article>
         <article class="sensor-container">
             <h1 class="sensor-title"><a href="water-temperature.html">Water Temperature</a></h1>
             <div class="circle-container">
                 <p class="data">20ºC</p>
             </div>
-            <h4 id="water-temperature-timestamp">Collected at:<br><span id="water-temperature-time"></span></h4>
+            <h4 id="water-temperature-timestamp" class="timestamp">Collected at:<br><span id="water-temperature-time"></span></h4>
         </article>
         <article class="sensor-container">
             <h1 class="sensor-title"><a href="water-ph.html">Water PH</a></h1>
             <div class="circle-container">
                 <p class="data">7.5</p>
             </div>
-            <h4 id="water-ph-timestamp">Collected at:<br><span id="water-ph-time"></span></h4>
+            <h4 id="water-ph-timestamp" class="timestamp">Collected at:<br><span id="water-ph-time"></span></h4>
         </article>
         <article class="sensor-container">
             <h1 class="sensor-title"><a href="water-tds.html">Water TDS</a></h1>
             <div class="circle-container">
                 <p class="data">1000 ppm</p>
             </div>
-            <h4 id="water-tds-timestamp">Collected at:<br><span id="water-tds-time"></span></h4>
+            <h4 id="water-tds-timestamp" class="timestamp">Collected at:<br><span id="water-tds-time"></span></h4>
         </article>
     </section>
     <script src="./index.js"></script>
     <script>
+        
         document.getElementById('menu-button').addEventListener('click', function() {
             document.getElementById('main-menu').classList.toggle('open');
         });
-    
+        /*
         // Update timestamps
         function updateTimestamps() {
             const currentTimestamp = new Date().toLocaleString();
@@ -70,4 +71,5 @@
     
         // Update timestamps every 1 second (1000ms)
         setInterval(updateTimestamps, 1000);
+        */
     </script>
