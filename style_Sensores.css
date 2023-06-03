@@ -91,6 +91,7 @@ li {
 .big-container {
     width: calc(100% - 12.5rem - 20px); /* Adjusted width to take up remaining space */
     height: 37.5rem; /* Same height as the sensor container */
+    position: relative;
     border: 6px solid darkorange; /* Added border for consistency */
     background-color: orange; /* Same color as sensor container */
     display: flex;
@@ -98,6 +99,63 @@ li {
     align-items: center;
     justify-content: center;
     margin-left: 20px; /* Added margin to move the container to the right */
+    padding: 20px;
+}
+
+.left-inner-container {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    padding: inherit;
+    overflow: hidden;
+}
+
+.right-inner-container {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    padding: inherit;
+}
+
+/* Time input section */
+
+.input-date-container{
+    display: flex;
+    gap: 40px;
+    margin-bottom: 10px;
+}
+
+
+.input-date-label{
+    display: block;
+    width: 60px;
+}
+
+.input-date{
+    width: 70%;
+}
+
+/* Chart section */
+.chart-container {
+    display: flex;
+    position: relative;
+    flex-grow: 1;
+    height: 100%;
+    bottom: 0;
+    width: 100%; /* Added this line to ensure the chart-container takes the full width */
+}
+
+#myChart{
+    width: 100% ;
+    height: 100% ;
+    position: absolute;
+}
+
+#map {
+    height: 100%; /* Adjust the height as needed */
+    width: 100%;
 }
 
 .circle-container {
