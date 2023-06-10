@@ -1,3 +1,49 @@
+// Tasks
+
+
+// this code compares the two time dates on input 
+const startDateInput = document.getElementById("start-date-input");
+const endDateInput = document.getElementById("end-date-input")
+
+let startDateChange = false;
+let endDateChange = false;
+
+startDateInput.addEventListener('change', handleStartDateChange)
+endDateInput.addEventListener('change', handleEndDateChange)
+
+function handleStartDateChange(){
+  startDateChange = true;
+  checkDatesChanged();
+}
+
+function handleEndDateChange(){
+  endDateChange = true;
+  checkDatesChanged();
+}
+
+function checkDatesChanged(){
+  if(startDateChange && endDateChange){
+    startDateChange = false;
+    endDateChange = false;
+    handleBothDatesChanged();
+  }
+}
+
+function handleBothDatesChanged(){
+  const startDate = new Date(startDateInput.value);
+  const endDate = new Date(endDateInput.value);
+
+  const timeDiff = endDate.getTime() - startDate.getTime()
+
+  if(timeDiff < 0){
+    alert("Starting Date Cannot Be Bigger Than Ending Date")
+  }
+
+  // DO SOME LOGIC HERE
+  console.log("We reached here")
+}
+
+
 // Define the array of latitudes and longitudes
 var trajectory = [
 
