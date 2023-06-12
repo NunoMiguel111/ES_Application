@@ -1,5 +1,9 @@
+import {getCookie, setCookie} from "./cookies.js"
 // CHANGE HERE MAIN URL
 const mainUrl = "http://localhost:8000";
+
+// Fetch sensor data section 
+
 
 fetch(mainUrl + "/measurements?max=1")
 .then(x=> x.json())
@@ -28,4 +32,14 @@ var time = timestamp.toLocaleTimeString();
 
 return date + " " + time;
 
+}
+
+
+var sensor_labels = document.querySelectorAll(".sensor-title");
+
+for (let i = 0; i < sensor_labels.length; i++) {
+    sensor_labels[i].addEventListener("click", function() {
+        setCookie("sensor_type", sensor_labels[i].textContent, 1);
+        console.log(getCookie("sensor_type"));
+    });
 }
