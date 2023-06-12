@@ -44,13 +44,26 @@ function handleBothDatesChanged() {
   console.log("We reached here");
 
   var trajectory = [];
+  var sensor_data = [];
 
-  fetch(mainUrl + "/measurements" + "?" + "start_date=" + startDate.toISOString() + "&" + "end_date=" + endDate.toISOString())
+  fetch(mainUrl + "/measurements" + "?" + "start_date=" + startDate.toISOString() + "&" + "end_date=" + endDate.toISOString() + "&" + "type=" + "air_temperature")
     .then(response => response.json())
     .then(measurements => {
+      console.log(measurements)
       for (let i = 0; i < measurements.length; i++) {
         trajectory.push([parseFloat(measurements[i].location[0]), parseFloat(measurements[i].location[1])]);
+        for (let j = 0; j < measurements[i].measurements.length; j++) {
+          if (measurements[i].measurements[j].type === "air_temperature") {
+            sensor_data.push({
+              x: new Date(measurements[i].timestamp), // Convert the timestamp to a JavaScript Date object
+              y: parseFloat(measurements[i].measurements[j].value)
+            });
+            break;
+          }
+        }
       }
+
+      console.log(sensor_data)
 
       // Initialize the map
       var map = L.map('map').setView(trajectory[0], 10); // Set the initial view and zoom level
@@ -83,58 +96,48 @@ function handleBothDatesChanged() {
 
       // Fit the map bounds to the polyline
       map.fitBounds(polyline.getBounds());
+
+      const data = {
+        datasets: [{
+          label: 'Air Temperature',
+          data: sensor_data,
+          backgroundColor: 'rgb(255, 99, 132)',
+          pointRadius: 5, // Set the radius of the data points
+          pointHoverRadius: 7, // Set the radius of the data points on hover
+          showLine: false // Disable the line connecting the data points
+        }],
+      };
+
+      const config = {
+        type: 'scatter', // Set the chart type to scatter
+        data: data,
+        options: {
+          scales: {
+            x: {
+              type: 'time', // Use 'time' scale for the x-axis
+              position: 'bottom'
+            },
+            y: {
+              display: true,
+              position: 'left',
+              title: {
+                display: true,
+                text: 'Value'
+              }
+            }
+          }
+        }
+      };
+
+      var canvas = document.getElementById("myChart");
+
+      const scatterPlot = new Chart(canvas, config);
+
     })
     .catch(error => {
       console.error("Error fetching measurements:", error);
     });
-
-  // Rest of your code
-  const data = {
-    datasets: [{
-      label: 'Air Temperature',
-      data: [{
-        x: -10,
-        y: 0
-      }, {
-        x: 0,
-        y: 10
-      }, {
-        x: 10,
-        y: 5
-      }, {
-        x: 0.5,
-        y: 5.5
-      }],
-      backgroundColor: 'rgb(255, 99, 132)'
-    }],
-  };
-
-  const config = {
-    type: 'scatter',
-    data: data,
-    options: {
-      scales: {
-        x: {
-          type: 'linear',
-          position: 'bottom'
-        },
-        y: {
-          display: true,
-          position: 'left',
-          title: {
-            display: true,
-            text: 'Value'
-          }
-        }
-      }
-    }
-  };
-
-  var canvas = document.getElementById("myChart");
-
-  const scatterPlot = new Chart(canvas, config);
 }
-
 
 
 
