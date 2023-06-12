@@ -24,6 +24,10 @@ fetch(mainUrl + "/measurements?max=1")
 
     }
     })
+.catch(err =>{
+    console.log(err);
+    alert("Couldn't fetch data from the server")
+})
 
 function formatTimestamp(timestamp) {
 
@@ -40,6 +44,7 @@ var sensor_labels = document.querySelectorAll(".sensor-title");
 for (let i = 0; i < sensor_labels.length; i++) {
     sensor_labels[i].addEventListener("click", function() {
         setCookie("sensor_type", sensor_labels[i].textContent, 1);
-        console.log(getCookie("sensor_type"));
+        window.location.href = "./measurements.html"
+        
     });
 }
