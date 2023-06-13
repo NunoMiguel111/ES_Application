@@ -1,5 +1,30 @@
+import {getCookie, setCookie} from "./cookies.js"
+import { formatTimestamp } from "./utils.js";
+
 // Define server url
 const mainUrl = "http://localhost:8000";
+
+// Read cookies
+const measurement_type = getCookie("sensor_type")
+console.log(measurement_type)
+
+// Get latest measurement
+fetch(mainUrl+ "/measurements" + "?"+ "max="+ 1 + "&" + "type=" + measurement_type)
+.then(x =>x.json())
+.then(measurement => {
+  console.log(measurement)
+  var sensor_name = document.querySelector(".sensor-title a")
+  var data = document.querySelector(".circle-container .data")
+  var timestamp = document.querySelector("#timestamp-time")
+
+  sensor_name.textContent = measurement_type;
+  timestamp.textContent = formatTimestamp(new Date(measurement[0].timestamp));
+  for(let i = 0 ; i< measurement[0].measurements.length; i++){
+    if(measurement[0].measurements[i].type === measurement_type){
+      data.textContent = measurement[0].measurements[i].value;
+    }
+  }
+})
 
 // Get references to input elements
 const startDateInput = document.getElementById("start-date-input");
@@ -53,7 +78,7 @@ function handleBothDatesChanged() {
       for (let i = 0; i < measurements.length; i++) {
         trajectory.push([parseFloat(measurements[i].location[0]), parseFloat(measurements[i].location[1])]);
         for (let j = 0; j < measurements[i].measurements.length; j++) {
-          if (measurements[i].measurements[j].type === "air_temperature") {
+          if (measurements[i].measurements[j].type === measurement_type) {
             sensor_data.push({
               x: new Date(measurements[i].timestamp), // Convert the timestamp to a JavaScript Date object
               y: parseFloat(measurements[i].measurements[j].value)
@@ -101,7 +126,7 @@ function handleBothDatesChanged() {
         datasets: [{
           label: 'Air Temperature',
           data: sensor_data,
-          backgroundColor: 'rgb(255, 99, 132)',
+          backgroundColor: 'rgb(0,100,0)',
           pointRadius: 5, // Set the radius of the data points
           pointHoverRadius: 7, // Set the radius of the data points on hover
           showLine: false // Disable the line connecting the data points

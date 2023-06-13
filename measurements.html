@@ -40,7 +40,7 @@
             <div class="circle-container">
                 <p class="data">25ºC</p>
             </div>
-            <h4 id="air-temperature-timestamp">Collected at:<br><span id="air-temperature-time"></span></h4>
+            <h4 id="timestamp">Collected at:<br><span id="timestamp-time"></span></h4>
         </article>
         <article class="big-container">
             <!-- Add your content for the big container here -->
@@ -78,11 +78,12 @@
             document.getElementById('main-menu').classList.toggle('open');
         });
 
+        /*
         // Update timestamps
         function updateTimestamps() {
             const currentTimestamp = new Date().toLocaleString();
 
-            document.getElementById('air-temperature-time').textContent = currentTimestamp;
+            document.getElementById('timestamp-time').textContent = currentTimestamp;
         }
 
         // Call updateTimestamps initially
@@ -90,8 +91,9 @@
 
         // Update timestamps every 1 second (1000ms)
         setInterval(updateTimestamps, 1000);
+        */
     </script>
-    <script src="sensor.js"></script>
+    <script src="sensor.js" type="module"></script>
 </body>
 
 </html>

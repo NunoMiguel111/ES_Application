@@ -1,9 +1,9 @@
 import {getCookie, setCookie} from "./cookies.js"
+import { formatTimestamp } from "./utils.js";
 // CHANGE HERE MAIN URL
 const mainUrl = "http://localhost:8000";
 
 // Fetch sensor data section 
-
 
 fetch(mainUrl + "/measurements?max=1")
 .then(x=> x.json())
@@ -29,14 +29,6 @@ fetch(mainUrl + "/measurements?max=1")
     alert("Couldn't fetch data from the server")
 })
 
-function formatTimestamp(timestamp) {
-
-var date = timestamp.toLocaleDateString();
-var time = timestamp.toLocaleTimeString();
-
-return date + " " + time;
-
-}
 
 
 var sensor_labels = document.querySelectorAll(".sensor-title");
