@@ -124,7 +124,7 @@ function handleBothDatesChanged() {
 
       const data = {
         datasets: [{
-          label: 'Air Temperature',
+          label: measurement_type,
           data: sensor_data,
           backgroundColor: 'rgb(0,100,0)',
           pointRadius: 5, // Set the radius of the data points

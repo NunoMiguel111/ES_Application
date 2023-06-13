@@ -10,7 +10,8 @@
 
 body {
     overflow: auto;
-    background-image: url(./images/ld_DAJ-NA03YsxFGKV79YOzuRP2q5M_9YCTptcRc6so.webp);
+    /*background-image: url(./images/ld_DAJ-NA03YsxFGKV79YOzuRP2q5M_9YCTptcRc6so.webp);*/
+    background-color: rgb(107,148,78) ;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
@@ -72,6 +73,11 @@ li {
     width: 80%; /* Adjust this value if needed */
     overflow: hidden;
     align-items: flex-start; /* Updated alignment */
+    background-color: aliceblue;
+    padding: 10px;
+    border-radius: 2%;
+  
+    box-shadow: 10px 10px blue;
 }
 
 .sensor-container {
@@ -85,7 +91,7 @@ li {
     background-color: orange;
     transition: all 0.3s ease-in-out;
     text-align: center;
-    margin-left: 50px; /* Added margin to move the container to the right */
+
 }
 
 .big-container {
