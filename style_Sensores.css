@@ -75,7 +75,7 @@ li {
     align-items: flex-start; /* Updated alignment */
     background-color: aliceblue;
     padding: 10px;
-    border-radius: 2%;
+    border-radius: 1.5%;
   
     box-shadow: 10px 10px blue;
 }
@@ -143,14 +143,25 @@ li {
     width: 70%;
 }
 
-/* Chart section */
 .chart-container {
     display: flex;
     position: relative;
     flex-grow: 1;
-    height: 100%;
-    bottom: 0;
-    width: 100%; /* Added this line to ensure the chart-container takes the full width */
+
+}
+
+.download-csv-button {
+    position: absolute;
+    color: rgb(107,148,78);
+    width: 40px;
+    height: 40px;
+    bottom: 30px;
+    right: 0;
+}
+.download-csv-button:hover{
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
 }
 
 #myChart{

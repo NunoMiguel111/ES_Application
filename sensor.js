@@ -17,7 +17,7 @@ fetch(mainUrl+ "/measurements" + "?"+ "max="+ 1 + "&" + "type=" + measurement_ty
   var data = document.querySelector(".circle-container .data")
   var timestamp = document.querySelector("#timestamp-time")
 
-  sensor_name.textContent = measurement_type;
+  sensor_name.textContent = measurement_type.split("_").map(name => name.charAt(0).toUpperCase()+ name.slice(1)).join(" ");
   timestamp.textContent = formatTimestamp(new Date(measurement[0].timestamp));
   for(let i = 0 ; i< measurement[0].measurements.length; i++){
     if(measurement[0].measurements[i].type === measurement_type){
