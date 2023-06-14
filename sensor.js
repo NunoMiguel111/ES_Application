@@ -1,5 +1,5 @@
 import { getCookie, setCookie } from "./cookies.js"
-import { formatTimestamp, DownloadJSON2CSV } from "./utils.js";
+import { formatTimestamp, downloadCSV } from "./utils.js";
 
 // Define server url
 const mainUrl = "http://localhost:8000";
@@ -14,13 +14,12 @@ console.log(measurement_type)
 fetch(mainUrl + "/measurements" + "?" + "max=" + 1 + "&" + "type=" + measurement_type)
   .then(x => x.json())
   .then(measurement => {
-    // Add event listener to csv icon
-    /*
-    var csv_icon = document.querySelector("download-csv-button");
-    csv_icon.addEventListener("click", {
-      DownloadJSON2CSV(measurement)
+
+    var csv_icon = document.querySelector(".download-csv-button");
+    csv_icon.addEventListener("click", function () {
+      downloadCSV(measurement, 'data.csv');
     })
-*/
+
     console.log(measurement)
     var sensor_name = document.querySelector(".sensor-title a")
     var data = document.querySelector(".circle-container .data")
