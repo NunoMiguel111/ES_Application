@@ -1,5 +1,5 @@
-import {getCookie, setCookie} from "./cookies.js"
-import { formatTimestamp } from "./utils.js";
+import { getCookie, setCookie } from "./cookies.js"
+import { formatTimestamp, DownloadJSON2CSV } from "./utils.js";
 
 // Define server url
 const mainUrl = "http://localhost:8000";
@@ -8,23 +8,32 @@ const mainUrl = "http://localhost:8000";
 const measurement_type = getCookie("sensor_type")
 console.log(measurement_type)
 
-// Get latest measurement
-fetch(mainUrl+ "/measurements" + "?"+ "max="+ 1 + "&" + "type=" + measurement_type)
-.then(x =>x.json())
-.then(measurement => {
-  console.log(measurement)
-  var sensor_name = document.querySelector(".sensor-title a")
-  var data = document.querySelector(".circle-container .data")
-  var timestamp = document.querySelector("#timestamp-time")
 
-  sensor_name.textContent = measurement_type.split("_").map(name => name.charAt(0).toUpperCase()+ name.slice(1)).join(" ");
-  timestamp.textContent = formatTimestamp(new Date(measurement[0].timestamp));
-  for(let i = 0 ; i< measurement[0].measurements.length; i++){
-    if(measurement[0].measurements[i].type === measurement_type){
-      data.textContent = measurement[0].measurements[i].value;
+
+// Get latest measurement
+fetch(mainUrl + "/measurements" + "?" + "max=" + 1 + "&" + "type=" + measurement_type)
+  .then(x => x.json())
+  .then(measurement => {
+    // Add event listener to csv icon
+    /*
+    var csv_icon = document.querySelector("download-csv-button");
+    csv_icon.addEventListener("click", {
+      DownloadJSON2CSV(measurement)
+    })
+*/
+    console.log(measurement)
+    var sensor_name = document.querySelector(".sensor-title a")
+    var data = document.querySelector(".circle-container .data")
+    var timestamp = document.querySelector("#timestamp-time")
+
+    sensor_name.textContent = measurement_type.split("_").map(name => name.charAt(0).toUpperCase() + name.slice(1)).join(" ");
+    timestamp.textContent = formatTimestamp(new Date(measurement[0].timestamp));
+    for (let i = 0; i < measurement[0].measurements.length; i++) {
+      if (measurement[0].measurements[i].type === measurement_type) {
+        data.textContent = measurement[0].measurements[i].value;
+      }
     }
-  }
-})
+  })
 
 // Get references to input elements
 const startDateInput = document.getElementById("start-date-input");
