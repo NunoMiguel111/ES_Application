@@ -8,6 +8,8 @@ const mainUrl = "http://localhost:8000";
 const measurement_type = getCookie("sensor_type")
 console.log(measurement_type)
 
+// csv_icon
+var csv_icon = document.querySelector(".download-csv-button");
 
 
 // Get latest measurement
@@ -15,7 +17,8 @@ fetch(mainUrl + "/measurements" + "?" + "max=" + 1 + "&" + "type=" + measurement
   .then(x => x.json())
   .then(measurement => {
 
-    var csv_icon = document.querySelector(".download-csv-button");
+
+    
     csv_icon.addEventListener("click", function () {
       downloadCSV(measurement, 'data.csv');
     })
@@ -165,6 +168,9 @@ function handleBothDatesChanged() {
       var canvas = document.getElementById("myChart");
 
       const scatterPlot = new Chart(canvas, config);
+
+      // Display download csv button
+      csv_icon.style.display = "block";
 
     })
     .catch(error => {

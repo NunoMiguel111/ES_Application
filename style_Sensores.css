@@ -157,6 +157,7 @@ li {
     height: 40px;
     bottom: 30px;
     right: 0;
+    display: none;
 }
 .download-csv-button:hover{
     width: 45px;
