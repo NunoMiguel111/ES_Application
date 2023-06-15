@@ -143,6 +143,10 @@ li {
     width: 70%;
 }
 
+.chart-options-buttons{
+    margin-bottom: 10px;
+}
+
 .chart-container {
     display: flex;
     position: relative;
@@ -268,3 +272,20 @@ li {
         flex-basis: calc(50% - 20px);
     }
 }
+
+/* Table section */
+.table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .table th,
+  .table td {
+    border: 1px solid black;
+    padding: 8px;
+  }
+  
+  .table th {
+    background-color: #f2f2f2;
+  }
+  

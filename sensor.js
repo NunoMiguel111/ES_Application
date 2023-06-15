@@ -109,7 +109,7 @@ function handleBothDatesChanged() {
       }
 
       // Create table dinamically
-      const tableHTML = `<table>
+      const tableHTML = `<table class="table">
       <thead>
         <tr>
           <th>Timestamp</th>
@@ -119,14 +119,14 @@ function handleBothDatesChanged() {
       <tbody>
         ${measurements.map(measurement => `
           <tr>
-            <td>${new Date(measurement.timestamp)}</td>
+            <td>${new Date(measurement.timestamp).toLocaleString()}</td>
             <td>${measurement.measurements.find(m => m.type === measurement_type)?.value || '-'}</td>
           </tr>
         `).join('')}
       </tbody>
     </table>`;
 
-      table_container.innerHTML = tableHTML;
+    table_container.innerHTML = tableHTML;
 
       // Initialize the map
       var map = L.map('map').setView(trajectory[0], 10); // Set the initial view and zoom level
