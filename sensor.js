@@ -187,28 +187,42 @@ function handleBothDatesChanged() {
           showLine: false // Disable the line connecting the data points
         }],
       };
-
       const config = {
-        type: 'scatter', // Set the chart type to scatter
+        type: 'scatter',
         data: data,
         options: {
           scales: {
             x: {
-              type: 'time', // Use 'time' scale for the x-axis
-              position: 'bottom'
+              type: 'time',
+              position: 'bottom',
+              ticks: {
+                color: 'black' // Set the x-axis tick color to black
+              }
             },
             y: {
               display: true,
               position: 'left',
               title: {
                 display: true,
-                text: 'Value'
+                text: 'Value',
+                color: 'black' // Set the y-axis title color to black
+              },
+              ticks: {
+                color: 'black' // Set the y-axis tick color to black
+              }
+            }
+          },
+          plugins: {
+            legend: {
+              labels: {
+                color: 'black' // Set the legend label color to black
               }
             }
           }
         }
       };
-
+      
+      
       
 
       scatterPlot = new Chart(canvas, config);
