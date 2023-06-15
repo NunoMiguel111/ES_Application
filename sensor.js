@@ -19,6 +19,12 @@ var table_button = document.querySelector(".table-button")
 var canvas = document.getElementById("myChart");
 var table_container = document.querySelector(".table-container")
 
+// map initialization flag
+var mapInitialized = false;
+var map;
+
+// variable to store the scatter plot
+var scatterPlot;
 
 
 // Get latest measurement
@@ -128,8 +134,14 @@ function handleBothDatesChanged() {
 
     table_container.innerHTML = tableHTML;
 
-      // Initialize the map
-      var map = L.map('map').setView(trajectory[0], 10); // Set the initial view and zoom level
+      if(!mapInitialized){
+        // Initialize the map
+        map = L.map('map').setView(trajectory[0], 10); // Set the initial view and zoom level
+
+        mapInitialized = true;
+
+      }
+
 
       // Create and add the OpenStreetMap tile layer to the map
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -159,6 +171,11 @@ function handleBothDatesChanged() {
 
       // Fit the map bounds to the polyline
       map.fitBounds(polyline.getBounds());
+
+      // destroy the scatter plot if already exists
+      if(scatterPlot){
+        scatterPlot.destroy();
+      }
 
       const data = {
         datasets: [{
@@ -194,7 +211,7 @@ function handleBothDatesChanged() {
 
       
 
-      const scatterPlot = new Chart(canvas, config);
+      scatterPlot = new Chart(canvas, config);
 
       // Display download csv button
       csv_icon.style.display = "block";

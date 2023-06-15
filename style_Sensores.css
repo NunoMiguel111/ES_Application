@@ -274,9 +274,11 @@ li {
 }
 
 /* Table section */
+
 .table {
     border-collapse: collapse;
     width: 100%;
+    overflow: scroll;
   }
   
   .table th,
