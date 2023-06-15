@@ -108,7 +108,25 @@ function handleBothDatesChanged() {
         }
       }
 
-      console.log(sensor_data)
+      // Create table dinamically
+      const tableHTML = `<table>
+      <thead>
+        <tr>
+          <th>Timestamp</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${measurements.map(measurement => `
+          <tr>
+            <td>${new Date(measurement.timestamp)}</td>
+            <td>${measurement.measurements.find(m => m.type === measurement_type)?.value || '-'}</td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>`;
+
+      table_container.innerHTML = tableHTML;
 
       // Initialize the map
       var map = L.map('map').setView(trajectory[0], 10); // Set the initial view and zoom level
