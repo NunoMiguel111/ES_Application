@@ -11,6 +11,15 @@ console.log(measurement_type)
 // csv_icon
 var csv_icon = document.querySelector(".download-csv-button");
 
+// chart and table buttons
+var chart_button = document.querySelector(".chart-button")
+var table_button = document.querySelector(".table-button")
+
+// get canvas and table
+var canvas = document.getElementById("myChart");
+var table_container = document.querySelector(".table-container")
+
+
 
 // Get latest measurement
 fetch(mainUrl + "/measurements" + "?" + "max=" + 1 + "&" + "type=" + measurement_type)
@@ -165,12 +174,23 @@ function handleBothDatesChanged() {
         }
       };
 
-      var canvas = document.getElementById("myChart");
+      
 
       const scatterPlot = new Chart(canvas, config);
 
       // Display download csv button
       csv_icon.style.display = "block";
+
+      // Add click events to both buttons only when data is available 
+      chart_button.addEventListener("click", function(){
+        canvas.style.display = "block";
+        table_container.style.display = "none";
+      })
+
+      table_button.addEventListener("click", function(){
+        canvas.style.display = "none";
+        table_container.style.display = "block";
+      })
 
     })
     .catch(error => {
